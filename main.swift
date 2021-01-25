@@ -65,3 +65,47 @@ else
 {
   print("nil")
 }
+//반복문
+for i in 1..<10
+{
+  if (i>8)
+  {
+    break //탈출
+  }
+  else if (i == 6)
+  {
+    continue //건너뛰기
+  }
+  print(i)
+}
+//switch case(break기본 생략)
+var temperature = 60
+switch (temperature)
+{
+  case 0...49 where temperature % 2 == 0:
+  print("Cold and even")
+  case 50...79 where temperature % 2 == 0:
+  print("Warm and even")
+  //where을 쓰면 부가적 조건 추가됨
+  default :
+  print("default")  //생략가능인데 repl.it은 안되는듯?
+}
+//함수 (외부생략시)
+func add(x:Int, y:Int) -> Int
+{
+  return(x+y)
+}
+print(add(x:10, y:20))
+//함수 (외부있을때)
+func add(first x:Int, second y:Int) -> Int
+{
+  return(x+y)
+}
+print(add(first:10, second:20))
+//함수(생략의 표기는 _, 첫번째 생략후 뒤에부터 쓰는경우 많다, objective-c언어에서의 방식이 이러함)
+func add(_ x:Int, second y:Int = 10) -> Int
+{
+  return(x+y)
+  // y에 10을 default 값으로 설정하는 방식
+}
+print(add(10))
