@@ -109,3 +109,49 @@ func add(_ x:Int, second y:Int = 10) -> Int
   // y에 10을 default 값으로 설정하는 방식
 }
 print(add(10))
+//클래스
+class Man
+{
+  var age : Int = 0
+  var weight : Double = 0.0
+  var manAge : Int
+  {
+    get
+    {
+      return age
+    }
+    set(newValue)
+    {
+      age = newValue
+    }
+  }
+  init(yourAge: Int, yourWeight: Double)
+  {
+    age = yourAge // or self.age 
+    weight = yourWeight // or self.weight
+  }
+  init(age : Int) // overloading
+  {
+    self.age = age
+  }
+  func display()
+  {
+    print("나이=\(age), 몸무게=\(weight)")
+  }
+  class func cM()
+  {
+    print("cM은 클래스 메소드")
+  }
+  static func scM()
+  {
+    print("scM은 클래스 메서드(스태틱)")
+  }
+}
+var kim : Man = Man(yourAge : 10, yourWeight : 10.5)
+var kim1 : Man = Man(age : 5)
+print(kim.age)
+kim.display()
+Man.cM()
+Man.scM()
+print(kim.manAge) //getter호출
+kim.manAge = 3 //setter 호출
