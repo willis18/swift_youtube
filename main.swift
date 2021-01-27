@@ -1,26 +1,35 @@
 //기본적 출력
 print("Hello, world!")
+
 // let:초기값 고정(상수), var:변동가능 (변수)
 let x1 = 10 // 타입추종
 var x2 = 10 //int
 let x = "출력은\n" //string
 x2 = 20
-print(x,x1,x2) //print는 terminator 기본 " "이 들어가잇고 생략가능이다
+print(x,x1,x2) //print는 terminator 기본"\n", separator 기본 " "이 들어가잇고 생략가능이다
 print("\(x)x1값:\(x1)\nx2값:\(x2)") //문자열 보간 
+
 //튜플
 let myTuple = (count: 10, 12.1, "hi")
 var myString = myTuple.2
 print(myString)
 print(myTuple.count)
+
+//배열
+var myArray = [10, 11, 12]
+print(myArray)
+
 //타입 확인
 print(type(of:myTuple))
+
 //옵셔널
 var optionalX : Int?
 var optionalY : Int = 0
 optionalX = 10
-print(optionalX) // Optinal(10)
+//print(optionalX) // Optinal(10)
 print(optionalX!) // 강제언래핑후 10출력
 print(optionalY)
+
 //언래핑전 닐값 거르기
 if optionalX != nil 
 {
@@ -39,6 +48,7 @@ else
 {
   print("nil")
 }
+
 //다른 강제언래핑2
 if let xx = optionalX
 {
@@ -65,6 +75,7 @@ else
 {
   print("nil")
 }
+
 //반복문
 for i in 1..<10
 {
@@ -78,6 +89,7 @@ for i in 1..<10
   }
   print(i)
 }
+
 //switch case(break기본 생략)
 var temperature = 60
 switch (temperature)
@@ -90,6 +102,7 @@ switch (temperature)
   default :
   print("default")  //생략가능인데 repl.it은 안되는듯?
 }
+
 //함수 (외부생략시)
 func add(x:Int, y:Int) -> Int
 {
@@ -109,6 +122,7 @@ func add(_ x:Int, second y:Int = 10) -> Int
   // y에 10을 default 값으로 설정하는 방식
 }
 print(add(10))
+
 //클래스
 class Man
 {
