@@ -76,6 +76,21 @@ else
   print("nil")
 }
 
+//if문
+var myScore = 56
+if myScore >= 80
+{
+  print("\(myScore)점 : 우수합격")
+}
+else if myScore >= 50
+{
+  print("\(myScore)점 : 합격")
+}
+else
+{
+  print("\(myScore)점 : 불합격")
+}
+
 //반복문
 for i in 1..<10
 {
@@ -87,8 +102,16 @@ for i in 1..<10
   {
     continue //건너뛰기
   }
-  print(i)
+  print("반복문 : \(i)")
 }
+
+//while문
+var n = 2
+while n<10
+{
+  n = n * 2
+}
+print("while문 : \(n)")
 
 //switch case(break기본 생략)
 var temperature = 60
@@ -103,13 +126,13 @@ switch (temperature)
   print("default")  //생략가능인데 repl.it은 안되는듯?
 }
 
-//함수 (외부생략시)
+//함수 (외부별칭 생략시)
 func add(x:Int, y:Int) -> Int
 {
   return(x+y)
 }
 print(add(x:10, y:20))
-//함수 (외부있을때)
+//함수 (외부별칭 있을때)
 func add(first x:Int, second y:Int) -> Int
 {
   return(x+y)
