@@ -76,6 +76,10 @@ else
   print("nil")
 }
 
+// ??연산자 통한 옵셔널 언래핑
+var optionalZ : Int?
+print(optionalZ ?? "??결과 = nil") // nil이 아니면 변수를 그대로 쓰고, nil이라면 ?? 뒤를 출력함
+
 //if문
 var myScore = 56
 if myScore >= 80
@@ -162,10 +166,10 @@ class Man
       age = newValue
     }
   }
-  init(yourAge: Int, yourWeight: Double)
+  init(age: Int, weight: Double)
   {
-    age = yourAge // or self.age 
-    weight = yourWeight // or self.weight
+    self.age = age // or self.age 
+    self.weight = weight // or self.weight
   }
   init(age : Int) // overloading
   {
@@ -184,7 +188,7 @@ class Man
     print("scM은 클래스 메서드(스태틱)")
   }
 }
-var kim : Man = Man(yourAge : 10, yourWeight : 10.5)
+var kim : Man = Man(age : 10, weight : 10.5)
 var kim1 : Man = Man(age : 5)
 print(kim.age)
 kim.display()
@@ -192,3 +196,22 @@ Man.cM()
 Man.scM()
 print(kim.manAge) //getter호출
 kim.manAge = 3 //setter 호출
+
+//클래스 상속
+class Student : Man 
+{
+  var name : String = "김소프"
+  override func display()
+  {
+    print("이름=\(name), 나이=\(age), 몸무게=\(weight)")
+  }
+  init(age : Int, weight : Double, name : String)
+  {
+    super.init(age : age, weight : weight)
+    self.name = name
+  }
+}
+var kimMan : Man = Man(age:10, weight:20.5)
+kimMan.display()
+var lee : Student = Student(age:20, weight:65.2, name : "홍길동")
+lee.display() //override
