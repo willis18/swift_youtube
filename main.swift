@@ -19,6 +19,32 @@ print(myTuple.count)
 var myArray = [10, 11, 12]
 print(myArray)
 
+//열거형
+enum Rank: Int
+{
+  case ace = 1
+  case two, three, four, five, six, seven, eight, nine, ten
+  case jack, queen, king
+
+  func simpleDescription() -> String
+  {
+    switch self
+    {
+      case .ace: return "에이스"
+      case .jack: return "잭"
+      case .queen: return "퀸"
+      case .king: return "킹"
+      default: return String(self.rawValue)
+    }
+  }
+}
+let ace = Rank.ace
+let aceRawValue = ace.rawValue
+print(ace, ace.simpleDescription(), aceRawValue)
+print(Rank.eight.rawValue) //.rawValue는 예약된 변수로 enum의 case가 선언된 x번째순서를 가진다
+let king = Rank.king
+print(Rank.king.simpleDescription())
+print(king.simpleDescription())
 //타입 확인
 print(type(of:myTuple))
 
@@ -215,3 +241,55 @@ var kimMan : Man = Man(age:10, weight:20.5)
 kimMan.display()
 var lee : Student = Student(age:20, weight:65.2, name : "홍길동")
 lee.display() //override
+
+//프로토콜
+protocol ExampleProtocol
+{
+  var simpleDescription: String {get}
+  var author : String {get set}
+  mutating func adjust()
+}
+
+class SimpleClass: ExampleProtocol
+{
+  var simpleDescription: String = "A very simple class."
+  var author : String = "Kaneko"
+  var anotherProperty: Int = 1192
+
+  //adjust 함수 구현
+  func adjust()
+  {
+    simpleDescription += "Now 100% adjusted"
+  }
+}
+
+var sProtocol: ExampleProtocol = SimpleClass() // 다형성
+sProtocol.adjust()
+print(sProtocol.simpleDescription, sProtocol.author)
+sProtocol.author="박둘리"
+print(sProtocol.author)
+
+//extension : 자료형에 추가적 기능을 제공
+extension Int: ExampleProtocol
+{
+  var simpleDescription: String
+  {
+    return "숫자는 \(self)입니다."
+  }
+  var author: String
+  {
+    get
+    {
+      return "숫자맨"
+    }
+    set{}
+  }
+  mutating func adjust()
+  {
+    self *= 10
+  }
+}
+print(7.simpleDescription)
+var num = 7
+num.adjust()
+print(num)
